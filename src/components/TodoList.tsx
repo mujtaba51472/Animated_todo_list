@@ -8,18 +8,21 @@ type TodoListProps = {
 };
 
 const TodoList = ({ todos, setTodos }: TodoListProps) => {
+  console.log("todos", todos);
   return (
     <div className="container">
       <div className="todos">
-        {todos?.map((todo, index) => (
-          <SingleTodo
-            index={index}
-            todos={todos}
-            todo={todo}
-            key={todo.id}
-            setTodos={setTodos}
-          />
-        ))}
+        {!todos.length
+          ? "No Todo"
+          : todos?.map((todo, index) => (
+              <SingleTodo
+                index={index}
+                todos={todos}
+                todo={todo}
+                key={todo.id}
+                setTodos={setTodos}
+              />
+            ))}
       </div>
     </div>
   );
